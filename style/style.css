@@ -1,0 +1,35 @@
+body {
+  background-color: antiquewhite;
+}
+
+.cover {
+  height: 42vh;
+  object-fit: contain;
+  padding-block: 0.5rem;
+}
+
+.detail-cont {
+  background-color: #1e2226;
+}
+
+.author {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nav-back {
+  background-image: url("https://www.bookblister.com/wp-content/uploads/2018/12/book-bookcase-books-1166657-850x560.jpg");
+}
+
+.back-col-nav {
+  background-color: #0000008f;
+}
+
+.nav-link {
+  border-radius: 10px;
+}
+
+.nav-link:hover {
+  background-color: #3695a7;
+}
