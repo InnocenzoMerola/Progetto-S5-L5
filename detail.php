@@ -19,7 +19,7 @@ if($id){
 <div class="col-10 offset-1">
     <div class="row mt-5 border border-4 py-2 detail-cont">
         <div class="col-4">
-            <img src="<?= $row['image'] ?>" alt="" style="height: 50vh;">
+            <img src="<?= $detOfBook->immagine ?? 'https://previews.123rf.com/images/rodrusoleg/rodrusoleg1506/rodrusoleg150600027/41087843-modello-di-copertina-del-libro-bianco-isolato-su-priorit%C3%A0-bassa-bianca-con-le-ombre.jpg' ?> " alt="" style="height: 50vh; width: 100%">
         </div>
         <div class="col-8 text-white">
             <h2 class="fw-bold"><?= $detOfBook->titolo?></h2>

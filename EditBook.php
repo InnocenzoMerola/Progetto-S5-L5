@@ -35,16 +35,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
           <div class="col-12">
             <label for="autore" class="form-label">Autore</label>
             <input type="text" value="<?= $bookManager->autore?>" name="autore" class="form-control <?= isset($errors['autore']) ? 'is-invalid' : ''?>" id="autore" >
-            
           </div>
         
 
           <div class="col-12">
             <label for="anno" class="form-label">Anno di pubblicazione</label>
             <input type="number" name="anno" value="<?= $bookManager->anno?>" class="form-control <?= isset($errors['anno']) ? 'is-invalid' : ''  ?>" id="anno" aria-describedby="validationServer03Feedback" >
-            
           </div>
 
+          <div class="col-12">
+            <label for="immagine">Copertina:</label>
+            <input type="text" name="immagine" id="immagine" value="<?= $bookManager->immagine ?>" class="form-control"><br><br>
+          </div>
         
           <label for="descrizione" class="form-label mb-0">Trama</label>
           <div class="form-floating">

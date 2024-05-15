@@ -19,6 +19,9 @@ if(isset($_SESSION['loggato'])){?>
         <?php foreach ($books as $book) {?>
             <div class="col-3">
                 <div class="card">
+                <a href="http://localhost/IFOA-BackEnd/Progetto%20S5-L5/detail.php?id=<?= $book->id ?>">
+                    <img src="<?= $book->immagine ?? 'https://previews.123rf.com/images/rodrusoleg/rodrusoleg1506/rodrusoleg150600027/41087843-modello-di-copertina-del-libro-bianco-isolato-su-priorit%C3%A0-bassa-bianca-con-le-ombre.jpg' ?> " class="card-img-top cover" alt="..." >
+                </a>
                     <div class="card-body pb-0 border-top border-2">
                         <h5 class="card-title"><?= $book->titolo ?></h5>
                         <p class="card-text mb-1 author">Scritto da <span class="fw-medium"><?= $book->autore ?></span></p>
@@ -27,7 +30,7 @@ if(isset($_SESSION['loggato'])){?>
                             <p class="card-text mb-0"><?= $book->anno ?></p>
                         </div>
                         <div class="d-flex mt-2 justify-content-end gap-2 border-top border-1 py-2 ">
-                            <a class="btn btn-info text-white text-decoration-none" href="http://localhost/IFOA-BackEnd/Progetto%20S5-L5/Detail.php?id=<?= $book->id ?>">Dettagli</a>
+                            <a class="btn btn-info text-white text-decoration-none" href="http://localhost/IFOA-BackEnd/Progetto%20S5-L5/detail.php?id=<?= $book->id ?>">Dettagli</a>
                             <a class="btn btn-success text-white text-decoration-none" href="http://localhost/IFOA-BackEnd/Progetto%20S5-L5/EditBook.php?id=<?= $book->id  ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
                                     <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
@@ -44,9 +47,12 @@ if(isset($_SESSION['loggato'])){?>
         }}?>
     <?php 
     if(!isset($_SESSION['loggato'])){?>
-        <h1>Benvenuto sul nostro sito</h1>
-        <h2>Per visualizzare i contenuti devi effettuare l'accesso</h2>
-        <a class="btn btn-primary" href="./login.php">Accedi</a><?php
+            <div class="col text-center">    
+                <h1>Benvenuto sul nostro sito</h1>
+                <h2>Per visualizzare i contenuti devi effettuare l'accesso</h2>
+                <a class="btn btn-primary" href="./login.php">Accedi</a>
+            </div>
+        <?php
     }?> 
 
 <?php

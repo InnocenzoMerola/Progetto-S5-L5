@@ -8,6 +8,7 @@ class Book{
     public $autore;
     public $descrizione;
     public $anno;
+    public $immagine;
     
     private $pdo;
 
@@ -33,6 +34,7 @@ class Book{
             $this->autore = $book['autore'];
             $this->anno = $book['anno'];
             $this->descrizione = $book['descrizione'];
+            $this->immagine = $book['immagine'];
         }
     }
 
@@ -48,13 +50,15 @@ class Book{
                 $this->autore = $_POST['autore'] ?? '';
                 $this->descrizione = $_POST['descrizione'] ?? '';
                 $this->anno = $_POST['anno'] ?? '';
+                $this->immagine = $_POST['immagine'] ?? '';
 
-                $stmt = $this->pdo->prepare('INSERT INTO books ( titolo, autore, descrizione, anno) VALUE ( :titolo, :autore, :descrizione, :anno)');
+                $stmt = $this->pdo->prepare('INSERT INTO books ( titolo, autore, descrizione, anno, immagine) VALUE ( :titolo, :autore, :descrizione, :anno, :immagine)');
                 $stmt->execute([
                     'titolo' => $this->titolo,
                     'autore' => $this->autore,
                     'descrizione' => $this->descrizione,
                     'anno' => $this->anno,
+                    'immagine' => $this->immagine,
                 ]);
                 header('Location: /IFOA-BackEnd/Progetto%20S5-L5/index.php');
                 exit();
@@ -78,21 +82,22 @@ class Book{
             $this->autore = $_POST['autore'] ?? $book['autore'];
             $this->anno = $_POST['anno'] ?? $book['anno'];
             $this->descrizione = $_POST['descrizione'] ?? $book['descrizione'];
-
-            
-                
-                $stmt = $this->pdo->prepare('UPDATE books SET titolo = :titolo, autore = :autore, anno = :anno, descrizione = :descrizione WHERE id = :id');
-                $stmt->execute([
-                    'id' => $this->id,
-                    'titolo' => $this->titolo,
-                    'autore' => $this->autore,
-                    'anno' => $this->anno,
-                    'descrizione' => $this->descrizione,
-                ]);
+            $this->immagine = $_POST['immagine'] ?? $book['immagine'];
 
 
-                header('Location: /IFOA-BackEnd/Progetto%20S5-L5/index.php');
-                exit();
+            $stmt = $this->pdo->prepare('UPDATE books SET titolo = :titolo, autore = :autore, anno = :anno, descrizione = :descrizione, immagine = :immagine WHERE id = :id');
+            $stmt->execute([
+                'id' => $this->id,
+                'titolo' => $this->titolo,
+                'autore' => $this->autore,
+                'anno' => $this->anno,
+                'descrizione' => $this->descrizione,
+                'immagine' => $this->immagine,
+            ]);
+
+
+            header('Location: /IFOA-BackEnd/Progetto%20S5-L5/index.php');
+            exit();
             }else{
                 echo 'ID libro inestistente';
             }

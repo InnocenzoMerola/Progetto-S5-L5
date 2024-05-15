@@ -38,6 +38,11 @@ $bookManager->create();
                 <input type="number" name="anno" id="anno" class="form-control"><br><br>
             </div>
 
+            <div class="col-12">
+                <label for="immagine">Copertina:</label>
+                <input type="text" name="immagine" id="immagine" class="form-control"><br><br>
+            </div>
+
             <label for="descrizione" class="form-label mb-0">Trama</label>
             <div class="form-floating">
                 <textarea class="form-control pt-2" placeholder="Piccola trama" name="descrizione" id="floatingTextarea2" style="height: 100px"></textarea>
